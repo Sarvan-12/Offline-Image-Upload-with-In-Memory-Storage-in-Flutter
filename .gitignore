@@ -36,4 +36,5 @@ ios/Pods/
 
 # ─── Symbol/Obfuscation ────────────────────────────────────
 app.*.symbols
-app.*.map.json
+app.*.map.json  
+
