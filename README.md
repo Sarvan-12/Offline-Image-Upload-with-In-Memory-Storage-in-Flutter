@@ -1,89 +1,44 @@
-# Offline Image Upload (Flutter)
+---
 
-A Flutter app that allows users to select multiple images and upload them, even when offline. Images are queued in memory and automatically uploaded when the device regains connectivity. Users receive local notifications upon successful upload.
+## Design Decisions
+
+- **In-Memory Queue:** Images selected offline are kept in memory (RAM) using Provider state management, ensuring no disk/database writes and instant responsiveness.
+- **Connectivity Handling:** The app uses real-time connectivity status to trigger auto-upload when the network is restored.
+- **User Feedback:** Upload status is shown for each image, and local notifications inform users of successful uploads.
+- **Modern UI:** Inspired by Amazon’s dark theme, with animated card corners for visual feedback and a bold, accessible header.
+- **Separation of Concerns:** UI, state management, and upload logic are separated for maintainability and clarity.
 
 ---
 
-## Features
+## Flutter Packages Used
 
-- **Multiple Image Selection:** Pick multiple images from the gallery.
-- **Offline Support:** Images selected while offline are stored in memory and queued for upload.
-- **Auto Upload:** Images are automatically uploaded when the internet connection is restored.
-- **Upload Queue:** See the status of each image (Pending, Uploading, Success, Failed).
-- **Retry Failed Uploads:** Retry uploading any failed images.
-- **Local Notifications:** Get notified when an image is successfully uploaded.
-- **Modern UI:** Amazon-inspired dark theme with animated card corners.
-
----
-
-## Screenshots
-
-*(Add your screenshots here)*
+- [`provider`](https://pub.dev/packages/provider): State management for the image queue and upload status.
+- [`image_picker`](https://pub.dev/packages/image_picker): For selecting multiple images from the device gallery.
+- [`connectivity_plus`](https://pub.dev/packages/connectivity_plus): To detect and respond to network connectivity changes.
+- [`http`](https://pub.dev/packages/http): For making multipart/form-data POST requests to the mock upload endpoint.
+- [`flutter_local_notifications`](https://pub.dev/packages/flutter_local_notifications): To send local notifications on successful upload.
+- [`google_fonts`](https://pub.dev/packages/google_fonts): For modern, readable typography.
 
 ---
 
-## Getting Started
+## Known Limitations & Future Improvements
 
-### Prerequisites
+- **In-Memory Only:** Images are not persisted to disk; if the app is killed, the upload queue is lost.
+- **No Background Upload:** Uploads only occur while the app is running and in the foreground.
+- **No Progress Bar for Each Upload:** Only a simple indicator is shown; per-image upload progress could be added.
+- **No Image Compression:** Images are uploaded at their original size; compression could reduce bandwidth.
+- **No iOS Local Notification Support:** Local notifications are currently set up for Android; iOS support may require additional configuration.
+- **No User Authentication:** All uploads are anonymous; authentication could be added for real-world use.
+- **No Error Details:** Failed uploads do not show detailed error messages.
+- **No Disk Caching:** For true offline robustness, consider adding optional disk caching (if requirements change).
 
-- [Flutter SDK](https://flutter.dev/docs/get-started/install)
-- Android Studio or VS Code
-
-### Installation
-
-1. **Clone the repository:**
-   ```sh
-   git clone <your-repo-url>
-   cd offline_image_upload
-   ```
-
-2. **Install dependencies:**
-   ```sh
-   flutter pub get
-   ```
-
-3. **Run the app:**
-   ```sh
-   flutter run
-   ```
-
-4. **Build APK (for Android):**
-   ```sh
-   flutter build apk --release
-   ```
+**Potential Future Improvements:**
+- Persist the upload queue to disk for true offline robustness.
+- Add background upload support.
+- Show per-image upload progress.
+- Add image compression before upload.
+- Support for iOS notifications.
+- Add authentication and user profiles.
+- Display error details and allow users to remove images from the queue.
 
 ---
-
-## Project Structure
-
-- `lib/ui/home_screen.dart` — Main UI for image selection and upload queue.
-- `lib/state/image_state.dart` — State management for image queue and upload logic.
-- `android/` — Android-specific configuration.
-- `pubspec.yaml` — Project dependencies.
-
----
-
-## Dependencies
-
-- [provider](https://pub.dev/packages/provider)
-- [image_picker](https://pub.dev/packages/image_picker)
-- [connectivity_plus](https://pub.dev/packages/connectivity_plus)
-- [http](https://pub.dev/packages/http)
-- [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)
-- [google_fonts](https://pub.dev/packages/google_fonts)
-
----
-
-## Approach
-
-- **State Management:** Uses Provider for managing the image queue and upload status.
-- **Connectivity:** Uses connectivity_plus to listen for network changes.
-- **Upload:** Sends images as multipart/form-data to a mock endpoint (`https://httpbin.org/post`).
-- **Notifications:** Uses flutter_local_notifications to notify users of successful uploads.
-- **UI:** Modern, responsive, and visually appealing.
-
----
-
-## License
-
-This project is for educational purposes.
