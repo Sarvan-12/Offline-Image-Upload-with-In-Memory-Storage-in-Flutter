@@ -1,12 +1,12 @@
 ---
 
-## Design Decisions
+## 🚧 Design Decisions
 
-- **In-Memory Queue:** Images selected offline are kept in memory (RAM) using Provider state management, ensuring no disk/database writes and instant responsiveness.
-- **Connectivity Handling:** The app uses real-time connectivity status to trigger auto-upload when the network is restored.
-- **User Feedback:** Upload status is shown for each image, and local notifications inform users of successful uploads.
-- **Modern UI:** Inspired by Amazon’s dark theme, with animated card corners for visual feedback and a bold, accessible header.
-- **Separation of Concerns:** UI, state management, and upload logic are separated for maintainability and clarity.
+- **🧠 In-Memory Queue:** Images selected offline are kept in memory (RAM) using Provider state management, ensuring no disk/database writes and instant responsiveness.
+- **🌐 Connectivity Handling:** The app uses real-time connectivity status to trigger auto-upload when the network is restored.
+- **📡 User Feedback:** Upload status is shown for each image, and local notifications inform users of successful uploads.
+- **🎨 Modern UI:** Inspired by Amazon’s dark theme, with animated card corners for visual feedback and a bold, accessible header.
+- **🧱 Separation of Concerns:** UI, state management, and upload logic are separated for maintainability and clarity.
 
 ---
 
