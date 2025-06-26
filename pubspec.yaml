@@ -1,5 +1,4 @@
-```yaml
-# filepath: d:\offline_image_upload\pubspec.yaml
+# filepath: [pubspec.yaml](http://_vscodecontentref_/1)
 name: offline_image_upload
 description: "A new Flutter project."
 publish_to: 'none'
@@ -25,4 +24,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-```
