@@ -1,0 +1,39 @@
+# ─── OS / Misc ─────────────────────────────────────────────
+*.log
+*.class
+*.pyc
+*.swp
+.DS_Store
+
+# ─── Flutter / Dart / Pub ──────────────────────────────────
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+.buildlog/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+analysis_options.yaml
+
+# ─── Android ───────────────────────────────────────────────
+android/.gradle/
+android/local.properties
+android/app/build/
+android_backup/
+
+# ─── iOS ───────────────────────────────────────────────────
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner.xcworkspace/
+ios/Pods/
+
+# ─── IDEs ──────────────────────────────────────────────────
+*.iml
+.idea/
+.vscode/
+
+# ─── Symbol/Obfuscation ────────────────────────────────────
+app.*.symbols
+app.*.map.json
