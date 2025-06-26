@@ -1,4 +1,4 @@
----
+
 
 ## 🚧 Design Decisions
 
@@ -8,7 +8,7 @@
 - **🎨 Modern UI:** Inspired by Amazon’s dark theme, with animated card corners for visual feedback and a bold, accessible header.
 - **🧱 Separation of Concerns:** UI, state management, and upload logic are separated for maintainability and clarity.
 
----
+...
 
 ## Flutter Packages Used
 
